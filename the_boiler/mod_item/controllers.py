@@ -42,6 +42,36 @@ def items_find(id):
     return render_template('item_view.html', item=item_exist)
 
 
+@mod_items.route('/items/create/', methods=['POST'])
+# @login_required
+def items_create_post():
+    data = request.form
+    print data
+
+    title = data['title']
+    headline = data['headline']
+    description = data['description']
+    url = data['url']
+    primary_key = data['primary_key']
+    thumbnail = ''
+
+    try:
+        item_exist = Item.add(title, headline, description,
+                              primary_key, url, thumbnail)
+        item_id = item_exist.insert()
+        return redirect("/items/" + item_id)
+    except Exception as e:
+        print e
+        return render_template('item_create.html', error=404)
+
+
+@mod_items.route('/items/create/', methods=['GET'])
+# @login_required
+def items_create():
+    print 'outpost'
+    return render_template('item_create.html')
+
+
 # Delete
 @mod_items.route('/items/<id>/delete', methods=['GET', 'POST'])
 @login_required

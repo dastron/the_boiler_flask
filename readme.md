@@ -10,12 +10,16 @@ Given that this is a flask app we will need to leverage a runner or manager. In 
 ### FOR DEVELOPMENT:
 
 - Navigate to root folder & clone GIT Repo
-	# `git clone https://github.com/googler4/the_boiler_flask.git`
+	`git clone https://github.com/googler4/the_boiler_flask.git`
 
 - Navigate into the cloned folder and create a virtual venv:
-	Create Venv # `virtualenv venv`
-	Updat
-
+	Create Venv `virtualenv venv`
+	Enter Venv `. venv/bin/activate`
+	Create a list of pip packages `pip-compile`
+	Install packages `pip install -r requirements.txt`
+	Create the tables `python manage.py create_tables` / y
+	Run app `python manage.py runserver`
+	Enjoy at localhost:5000
 
 
 ### FOR PRODUCTION:
@@ -37,20 +41,20 @@ Debian 8.0
 	    -npm
 
 - Configure Nginx
-	Remove default # `rm /etc/nginx/sites-enabled/default`
-	Create new config # `nano /etc/nginx/sites-available/the-flask-org`
+	Remove default `rm /etc/nginx/sites-enabled/default`
+	Create new config `nano /etc/nginx/sites-available/the-flask-org`
 	Create Symbolic link to enabled config`ln -s /etc/nginx/sites-available/the-flask-org /etc/nginx/sites-enabled/`
 	Check to see if config is valid`nginx -t`
 	Reload Nginx (Debian) `/etc/init.d/nginx reload`
 
 - Navigate to root folder & clone GIT Repo
-	# `git clone https://github.com/googler4/the_boiler_flask.git`
+ `git clone https://github.com/googler4/the_boiler_flask.git`
 
 - App / Execution 
-	Create user to run app # `useradd -m -d /home/app app`
-	Create Venv # `virtualenv venv`
-	Install Dependencies # `pip install -r requirements.txt`
-	Change Owner # `chown -R app:app /opt/app`
+	Create user to run app `useradd -m -d /home/app app`
+	Create Venv `virtualenv venv`
+	Install Dependencies `pip install -r requirements.txt`
+	Change Owner `chown -R app:app /opt/app`
 	Run Gunicorn:
 	`gunicorn manage:app --bind 0.0.0.0:5000
 		autostart=true

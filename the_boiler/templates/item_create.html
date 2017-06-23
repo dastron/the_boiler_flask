@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row columns">
+<nav aria-label="You are here:" role="navigation">
+<ul class="breadcrumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/items">Items</a></li>
+{% for groupmap in group_maps %}
+<li class=""><a href="/groups/{{groupmap.group_id}}">{{groupmap.attribute}}</a></li>
+{% endfor %}
+<li>
+<span class="show-for-sr">Current: </span> {{title}}
+</li>
+</ul>
+</nav>
+</div>
+
+<form method="post">
+<div class="row">
+
+<div class="medium-12 large-12 columns">
+<h3>Primary Key</h3><input type="text" name="primary_key" id="primary_key" value="{{primary_key}}">
+<h3>Title</h3><input type="text" name="title" id="title" value="{{title}}">
+<h3>Headline</h3><input type="text" name="headline" id="headline" value="{{headline}}">
+<h3>Description</h3><textarea rows=10 type="text" name="description" value="">{{description}}</textarea>
+<h3>Product URL</h3><input type="text" name="url" id="url" value="{{url}}">
+
+
+<!-- <label>Size
+<select>
+<option value="husker">Small</option>
+<option value="starbuck">Medium</option>
+<option value="hotdog">Large</option>
+<option value="apollo">Yeti</option>
+</select> -->
+</label>
+<input type="submit" class="button large expanded">Save</a>
+</form>
+<div class="small secondary expanded button-group">
+<!-- <a href="edit" class="button">Edit</a>
+<a href="edit" class="button">Delete</a>
+<a href="duplicate" class="button">Duplicate</a> -->
+</div>
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}

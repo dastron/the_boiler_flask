@@ -10,7 +10,7 @@
 
 {% for item in items %}
 <div class="column">
-<img class="thumbnail" src="{{item.thumbnail}}">
+<img class="thumbnail" src="{{item.thumbnail or 'http://via.placeholder.com/250x150'}}">
 <a href="/items/view/{{item.primary_key}}">{{item.title}}</a>
 <h6>{{item.headline}}</h6>
 <br>

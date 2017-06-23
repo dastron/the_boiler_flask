@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, Response, flask
+from flask import Blueprint, request, render_template, Response
 from flask import session as login_session
 from flask_login import login_required, login_user, logout_user
 

@@ -1,9 +1,9 @@
 
 from inflect import engine
-from sqlalchemy import Boolean, Column, Unicode, UnicodeText
+from sqlalchemy import Boolean, Column, Unicode, UnicodeText, Integer
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import validates
-from sqlalchemy_utils import Timestamp, Integer
+from sqlalchemy_utils import Timestamp
 
 inflector = engine()
 

@@ -3,6 +3,7 @@ Flask-Restless
 Flask-CORS
 Flask-Login
 Flask-Script
+flask_sqlalchemy
 SQLAlchemy
 SQLAlchemy-Utils
 SQLAlchemy-Searchable

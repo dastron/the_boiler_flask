@@ -1,6 +1,5 @@
 from ..webapp import database as db
 from ..models.mixins import AnObject
-from sqlalchemy import Integer
 
 
 class Item(AnObject, db.Model):
@@ -24,7 +23,7 @@ class Item(AnObject, db.Model):
     updated_date_time = db.Column(DateTime(timezone=True), nullable=False)
     """
     price = db.Column(db.Integer, nullable=True)
-    count = db.Column(Integer, default=1)
+    count = db.Column(db.Integer, default=1)
 
     @staticmethod
     def add(title, headline, description, primary_key, url, thumbnail):
