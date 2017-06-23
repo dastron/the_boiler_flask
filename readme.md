@@ -13,13 +13,13 @@ Given that this is a flask app we will need to leverage a runner or manager. In 
 	`git clone https://github.com/googler4/the_boiler_flask.git`
 
 - Navigate into the cloned folder and create a virtual venv:
-	Create Venv `virtualenv venv`
-	Enter Venv `. venv/bin/activate`
-	Create a list of pip packages `pip-compile`
-	Install packages `pip install -r requirements.txt`
-	Create the tables `python manage.py create_tables` / y
-	Run app `python manage.py runserver`
-	Enjoy at localhost:5000
+	- Create Venv `virtualenv venv`
+	- Enter Venv `. venv/bin/activate`
+	- Create a list of pip packages `pip-compile`
+	- Install packages `pip install -r requirements.txt`
+	- Create the tables `python manage.py create_tables` / y
+	- Run app `python manage.py runserver`
+	- Enjoy at localhost:5000
 
 
 ### FOR PRODUCTION:
