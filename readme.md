@@ -21,6 +21,10 @@ Given that this is a flask app we will need to leverage a runner or manager. In 
 	- Run app `python manage.py runserver`
 	- Enjoy at localhost:5000
 
+ - #### Celery Setup:
+ 	- INSTALL REDIS
+ 	- Enter Venv `. venv/bin/activate`
+ 	- Start task runner `celery worker -A the_boiler.webapp.celery --loglevel=info`
 
 ### FOR PRODUCTION:
 Debian 8.0
