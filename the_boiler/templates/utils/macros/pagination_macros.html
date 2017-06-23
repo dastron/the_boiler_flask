@@ -1,0 +1,57 @@
+{% macro render_pagination(pagination, endpoint) %}
+<nav class="text-center">
+  <ul class="pagination" role="navigation" aria-label="Pagination">
+
+    {% if pagination.has_prev %}
+    <li class="">
+      <a href="{{ url_for(endpoint, page=pagination.prev_num) }}">Previous </a><span class="show-for-sr">page</span></li>
+
+      {% endif %}
+
+
+      <!-- <li>
+        <a href="{{ url_for(endpoint, page=pagination.prev_num) }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li> -->
+
+
+      {% for p in pagination.iter_pages(left_edge=1, left_current=2, right_current=3, right_edge=1) %}
+      {% if p %}
+      {% if p != pagination.page %}
+      <li>
+        <a href="{{ url_for(endpoint, page=p) }}" aria-label="Page {{ p }}">{{ p }}</a>
+      </li>
+          <!-- <li>
+            <a href="{{ url_for(endpoint, page=p) }}">{{ p }}</a>
+          </li> -->
+          {% else %}
+          <li class="current">
+            <span class="show-for-sr">You're on page</span> {{ p }}
+          </li>
+          <!-- <li class="active">
+            <a href="{{ url_for(endpoint, page=p) }}">{{ p }}</a>
+          </li> -->
+          {% endif %}
+          {% else %}
+          <li class="">
+            <span class="ellipsis"></span>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% if pagination.has_next %}
+          <li>
+            <a href="{{ url_for(endpoint, page=pagination.next_num) }}" aria-label="Next page">Next <span class="show-for-sr">page</span></a>
+          </li>
+      <!-- <li>
+        <a href="{{ url_for(endpoint, page=pagination.next_num) }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li> -->
+      {% endif %}
+
+    </ul>
+  </nav>
+
+  {% endmacro %}
