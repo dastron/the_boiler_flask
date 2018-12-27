@@ -19,7 +19,7 @@ flask-login==0.4.0
 flask-restless==0.17.0
 flask-script==2.0.5
 flask-sqlalchemy==2.2
-flask==0.12.2
+flask==0.12.3
 gunicorn==19.7.1
 idna==2.5                 # via requests
 inflect==0.2.5
